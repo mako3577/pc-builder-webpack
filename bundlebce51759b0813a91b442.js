@@ -30,7 +30,6 @@ var countPrice = function countPrice() {
       var price = _step.value;
 
       if (!price.closest("tr").classList.contains("inactive")) {
-        console.log("inactive");
         summaryCost += parseInt(price.innerText);
       }
     }
@@ -142,7 +141,6 @@ var getSelectedCategories = function getSelectedCategories() {
     _iterator.f();
   }
 
-  console.log(idArr);
   return idArr;
 };
 
@@ -925,7 +923,6 @@ if (typeof localStorage.getItem("catId") != "undefined" && localStorage.getItem(
 
 
 var categoriesInit = function categoriesInit() {
-  console.log("categories init");
 
   var _iterator = _createForOfIteratorHelper(basicCategories),
       _step;
@@ -1162,9 +1159,7 @@ var editFunction = function editFunction(e) {
         var price = trToEdit.querySelector(".price").innerText;
         var category = trToEdit.querySelector(".category").innerText;
         var editedItem = name + "," + description + "," + price + "," + category;
-        console.log("old", localStorage.getItem(trToEditId));
         localStorage.setItem(trToEditId, editedItem);
-        console.log("new", localStorage.getItem(trToEditId));
         (0,_countPrice__WEBPACK_IMPORTED_MODULE_2__["default"])();
       };
 
@@ -1201,7 +1196,6 @@ var deleteItem = function deleteItem(e) {
   // gParent = e.target.parentElement.parentElement; when clicked right in the icon inside the button
   // it was deleting button td instead of all the record
   var gParent = e.target.closest("tr");
-  console.log(gParent);
   var itemId = gParent.getAttribute("id");
   localStorage.removeItem("".concat(itemId));
   gParent.remove();
@@ -1246,7 +1240,6 @@ var createCategoriesList = function createCategoriesList() {
   try {
     for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
       var _category = _step4.value;
-      console.log(_category.innerText);
 
       if (_category.value != "noAnswer") {
         var newCategory = document.createElement("li");
@@ -1322,7 +1315,6 @@ var deleteCategory = function deleteCategory(e) {
     }, 2500); // If there is no items with such category, delete category.
   } else {
     if (textInside == "inne" && document.querySelectorAll("[value ='".concat(textInside, "'")).length == 1) {
-      console.log("return");
     } else {
       // delete from options list
       optionToDel.remove(); // delete category from localStorage
@@ -1355,7 +1347,6 @@ var createOptions = function createOptions() {
   if (typeof catId != "undefined" && catId > 1) {
     for (var i = 0; i <= catId; i++) {
       if (typeof localStorage["cat".concat(i)] != "undefined") {
-        console.log("i", i);
         var newCat = document.createElement("option");
         newCat.setAttribute("id", i);
         newCat.value = localStorage.getItem("cat".concat(i));

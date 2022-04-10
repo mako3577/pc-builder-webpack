@@ -22,4 +22,4 @@ Aplikacja nie pozwala na:
 
 
 
-![preview image](preview.PNG?raw=true "Title")
+![preview image](preview1.PNG?raw=true "Title")

@@ -1,0 +1,378 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+$primary-color: #2fa8cc;
+$secondary-color: #f4f4f4;
+$box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+
+:root {
+  --deep-dark: rgb(26, 26, 26);
+  --light-dark: rgb(79, 82, 92);
+  --light-blue: rgb(0, 132, 255);
+  --dark-blue: rgb(2, 84, 161);
+  --light: rgb(245, 245, 245);
+}
+
+.pc-builder {
+  /* height: 700px; */
+  width: 1000px;
+  margin: 100px auto;
+  background-color: aliceblue;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.305);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  background: rgb(10, 58, 149);
+  background: linear-gradient(90deg, rgba(10, 58, 149, 1) 13%, rgba(0, 212, 255, 1) 99%);
+  /* (var(--light-blue), red); */
+
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+}
+
+/* INPUTS */
+
+.creating-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 50px;
+  row-gap: 80px;
+  padding-bottom: 80px;
+  align-items: center;
+  padding: 40px 80px;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  position: relative;
+}
+
+.input-info {
+  font-size: 20px;
+}
+
+.input-field,
+.select-field {
+  height: 35px;
+  width: 100%;
+}
+
+/* LIST CONTAINING ALL COMPUTERS */
+.listItems {
+  display: flex;
+  grid-column: 1/-1;
+  flex-direction: column;
+  font-size: 20px;
+  /* gap: 20px; */
+  list-style: none;
+}
+.table-div {
+  position: relative;
+}
+
+.table {
+  font-size: 16px;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.table td {
+  text-overflow: ellipcsis;
+}
+
+.table th {
+  width: 25%;
+  text-align: left;
+  height: 50px;
+  background-color: rgb(173, 197, 239);
+  justify-items: center;
+  padding-left: 8px;
+}
+.table td {
+  padding: 5px 45px 5px 8px;
+}
+
+.table tr:nth-of-type(even) {
+  background-color: rgb(228, 238, 255);
+}
+.table th:nth-child(3) {
+  width: fit-content;
+}
+.table td:nth-child(3) {
+  width: fit-content;
+}
+
+.computer {
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  display: flex;
+}
+
+.edit-button {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 80%;
+  top: 0;
+  display: none;
+}
+
+button i {
+  font-size: 16px;
+}
+
+.empty-list-info {
+  display: none;
+  font-size: 20px;
+  padding: 13px 26px;
+  text-align: center;
+}
+
+.price-info {
+  display: none;
+  font-size: 20px;
+  padding: 13px 26px;
+  text-align: center;
+  background-color: rgba(68, 68, 68, 0.26);
+}
+
+.empty-list-info.visible {
+  display: block;
+}
+
+.price-info.visible {
+  display: block;
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}
+
+tr.inactive {
+  display: none;
+}
+
+label {
+  color: #222;
+}
+
+// CATEGORIES
+// ***********************
+
+.category-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.category-tooltip .info-icon {
+  transform: translateY(-35px);
+  stroke: #0a3b95d5;
+}
+
+.th-kategoria {
+  position: relative;
+}
+
+.category-filter-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-40%, 40%) !important;
+  background-color: #0a3b952f;
+}
+.category-filter-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.filterMenu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(209, 226, 241);
+  padding: 10px;
+  transform: translateY(-100%);
+
+  line-height: 1.6;
+
+  border: #444 solid 1px;
+}
+
+.filterMenu.active {
+  display: block;
+  // transform: translateY(-100%);
+  animation: fromBottom 0.5s;
+  z-index: 4;
+}
+
+/* category settings */
+.category-settings-div {
+  position: absolute;
+  display: grid;
+  column-gap: 35px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 125px 0fr 50px;
+
+  height: 100%;
+  width: 100%;
+  left: 100%;
+  opacity: 0;
+
+  background: rgb(255, 255, 255);
+  /* backdrop-filter: blur(3px); -------- animations is not smooth*/
+  transition: all 0.5s;
+}
+
+.category-settings-div.active {
+  transform: translateX(-100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+.categories-list {
+  flex-direction: column;
+  padding: 15px;
+  padding-top: 25px;
+}
+
+/* hide 'wybierz kategorię' */
+.categories-list li:first-child {
+  display: none;
+}
+
+.categories-list li:nth-child(odd) {
+  background-color: rgba(102, 165, 238, 0.171);
+}
+.categories-list li {
+  padding: 4px 0 4px 4px;
+  align-items: center;
+}
+
+.delete-category.button {
+  height: 25px;
+  width: 30px;
+}
+
+.category-settings-header {
+  grid-column: 1/-1;
+  text-align: center;
+  padding-top: 4%;
+  height: 125px;
+  color: black;
+  background-color: rgba(102, 102, 102, 0.247);
+}
+
+.wrap-cat {
+  flex-direction: column;
+}
+
+.add-cat-btn {
+  height: 30px;
+  width: fit-content;
+  padding: 0 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.new-cat-input {
+  width: 60%;
+  padding-left: 3px;
+}
+
+.input-cat-div {
+  padding-left: 15px;
+  padding-right: 3px;
+}
+
+.close-clas-edit-btn.button {
+  margin-top: 50px;
+  grid-column: 1/-1;
+  width: 60%;
+  justify-self: center;
+}
+
+.wrap-for-button {
+  position: relative;
+}
+
+// TOOLTIPS
+// *********************
+
+.info-icon {
+  height: 30px;
+  position: absolute;
+  stroke: white;
+  z-index: 4;
+}
+
+[data-tooltip]:before {
+  /* needed - do not touch */
+  content: attr(data-tooltip);
+  position: absolute;
+  opacity: 0;
+
+  /* customizable */
+  transition: all 0.15s ease;
+  padding: 10px;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px silver;
+}
+
+[data-tooltip]:hover:before {
+  /* needed - do not touch */
+  opacity: 1;
+  z-index: 4;
+
+  /* customizable */
+  background: whitesmoke;
+  margin-top: 1px;
+  margin-left: 20px;
+  border: rgba(51, 51, 51, 0.226) 1px solid;
+}
+
+[data-tooltip]:not([data-tooltip-persistent]):before {
+  pointer-events: none;
+}
+
+.tooltip {
+  position: absolute;
+  margin: 5px;
+}
+
+.filter-info {
+  padding-bottom: 10px;
+}
+
+.filter-buttons {
+  padding-top: 15px;
+  justify-content: space-evenly;
+}
+.filter-button {
+  width: 46%;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 1px 2px;
+  color: white;
+  letter-spacing: +0.35px;
+  background-color: #0a3b95ad !important;
+}

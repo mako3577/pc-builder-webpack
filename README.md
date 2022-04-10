@@ -19,3 +19,7 @@ Aplikacja nie pozwala na:
 - wpisanie liter do pozycji "cena"
 - dodanie przedmiotu, jeśli jakieś pole nie jest uzupełnione - puste pole są podświetlone na czerwono
 - usunięcia kategorii "inne"
+
+
+
+![preview image](preview.PNG?raw=true "Title")

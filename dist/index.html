@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PC-Builder</title>
+
+    <script src="https://kit.fontawesome.com/c88e9cd648.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="icons8-computer-support-50.png" type="image/x-icon" />
+  <script defer src="bundle7ae7a95f2170d028365c.js"></script></head>
+
+  <!-- 
+
+    HEAD
+
+ -->
+
+  <!-- czcionka Montserrat -->
+
+  <!-- dodaj swój kit Font Awesome, jeśli chcesz mieć ikony ☑️ oraz ✖️ -->
+
+  <!-- 
+
+    BODY
+
+ -->
+
+  <body>
+    <div class="pc-builder">
+      <div
+        data-tooltip="Tabela i kategorie użytkownika są zapisywane w pamięci podręcznej przeglądarki."
+        class="tooltip visible"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="info-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="category-settings-div">
+          <div class="category-settings-header">
+            <h2 class="secondary-header">Zarządzanie kategoriami</h2>
+          </div>
+          <div class="wrap-cat flex">
+            <h3 class="tertiary-header">Lista kategorii:</h3>
+            <ul class="categories-list flex"></ul>
+          </div>
+          <div class="wrap-cat flex">
+            <h3 class="tertiary-header">Dodaj kategorię:</h3>
+            <div class="wrap flex input-cat-div">
+              <input class="new-cat-input" type="text" placeholder="Podaj nazwę nowej kategorii" />
+              <button class="add-cat-btn button">Dodaj kategorię</button>
+            </div>
+          </div>
+          <button class="close-clas-edit-btn button big-btn">
+            <span class="big-btn-text">Zakończ edycję</span>
+          </button>
+        </div>
+        <div class="header">
+          <h1 class="primary-header">PC Builder</h1>
+        </div>
+        <div class="creating-div main">
+          <div class="input-div">
+            <p class="input-info">Nazwa pozycji</p>
+            <input
+              class="input-field name-input"
+              type="text"
+              placeholder=" Wprowadź nazwę podzespołu: "
+            />
+          </div>
+          <div class="input-div">
+            <p class="input-info">Opis</p>
+            <input
+              class="input-field info-input"
+              type="text"
+              placeholder=" Wprowadź markę i model produktu"
+            />
+          </div>
+          <div class="input-div">
+            <p class="input-info">Cena w złotłwkach</p>
+            <input
+              class="input-field price-input"
+              type="number"
+              placeholder=" Wprowadź cenę (wyłącznie cyfry)"
+            />
+          </div>
+          <div class="input-div">
+            <div class="flex space-btw">
+              <p class="input-info">Kategoria</p>
+              <button class="button category-settings-btn">
+                <i class="fa-solid fa-list"></i>
+              </button>
+            </div>
+
+            <select class="select-field input-field" type="number">
+              <option value="noAnswer">Wybierz kategorię</option>
+            </select>
+          </div>
+          <button class="add-item-btn big-btn button">
+            <span class="big-btn-text">Dodaj pozycję</span>
+            <!-- <i class="fa-solid fa-plus"></i> -->
+          </button>
+        </div>
+        <div class="table-div">
+          <div
+            data-tooltip="Aby edytować dane w polu, kliknij na nie dwukrotnie."
+            class="tooltip visible category-tooltip"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="info-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <table class="table parameters">
+            <tr>
+              <th class="th-nazwa">Nazwa</th>
+              <th class="th-opis">Opis</th>
+              <th class="th-cena">Cena (zł)</th>
+              <th class="th-kategoria">
+                Kategoria
+                <button class="category-filter-button button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="category-filter-icon"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    />
+                  </svg>
+                </button>
+                <div class="filterMenu">
+                  <p class="filter-info">Dostosuj filtr:</p>
+                  <form>
+                    <!-- JS Code will add all existing categories here -->
+                  </form>
+                  <div class="filter-buttons flex">
+                    <button class="getSelectedCategoriesBtn button filter-button">Filtruj</button>
+                    <button class="resetSelectedCategoriesBtn button filter-button">
+                      Usuń filtry
+                    </button>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </table>
+          <p class="price-info"></p>
+          <p class="empty-list-info">Lista jest pusta. Użyj przycisku 'dodaj pozycję'</p>
+        </div>
+      </div>
+      <button class="button edit-button">
+        <!-- <i class="fa-solid fa-square-check"></i> -->
+        <i class="fa-solid fa-check"></i>
+      </button>
+    </div>
+  </body>
+</html>

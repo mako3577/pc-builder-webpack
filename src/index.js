@@ -16,6 +16,7 @@ const editBtn = document.querySelector(".edit-button");
 // 4 main inputs from top side of the app
 const mainInputs = document.querySelectorAll(".input-field");
 let id = localStorage.getItem("id");
+let priceSortStatus;
 
 // generated automatically when 'categoriesSettingsBtn' clicked
 const categoriesList = document.querySelector(".categories-list");
@@ -506,11 +507,70 @@ const categoriesFilterMenu = function () {
 const expandCategoriesSettings = function () {
   createCategoriesList();
   document.querySelector(".category-settings-div").classList.toggle("active");
+  document.addEventListener("click", function (e) {
+    if (!e.target.matches(".category-settings-div")) {
+      document.querySelector(".category-settings-div").classList.toggle("active");
+    }
+  });
 };
 
 // close category settings window
 const closeCatEdit = function () {
   document.querySelector(".category-settings-div").classList.remove("active");
+};
+
+// sort table rows increasing
+// if it's already sorted increasing, sort decreasing
+const priceSort = function () {
+  let priceVal, nextPriceVal;
+
+  // check current sorting status
+  // if its other than 'increasing'
+  // sort rows from small to big
+  if (priceSortStatus != "increasing") {
+    for (let i = 1; i < document.querySelector(".table").rows.length - 1; i++) {
+      priceVal = parseInt(document.querySelector(".table").rows[i].children[2].innerText);
+      nextPriceVal = parseInt(document.querySelector(".table").rows[i + 1].children[2].innerText);
+
+      if (priceVal < nextPriceVal) {
+        let bigger = document.querySelector(".table").rows[i + 1];
+        let smaller = document.querySelector(".table").rows[i];
+
+        let parentDiv = smaller.parentNode;
+
+        parentDiv.insertBefore(bigger, smaller);
+        i = 0;
+      }
+    }
+    // change sorting status to enable sorting
+    // from highest to smallest
+    priceSortStatus = "increasing";
+  } else {
+    for (let i = 1; i < document.querySelector(".table").rows.length - 1; i++) {
+      priceVal = parseInt(document.querySelector(".table").rows[i].children[2].innerText);
+      nextPriceVal = parseInt(document.querySelector(".table").rows[i + 1].children[2].innerText);
+
+      // after iterating over prices in rows, check if they're
+      // already positioned well
+      // if not, change their positions in relation 1 to 1
+      if (priceVal > nextPriceVal) {
+        let smaller = document.querySelector(".table").rows[i + 1];
+        let bigger = document.querySelector(".table").rows[i];
+
+        // define parent
+        let parentDiv = smaller.parentNode;
+        // change positions of rows
+        parentDiv.insertBefore(smaller, bigger);
+
+        // set i to to repeat the loop
+        // this loop will be repeated to moment,
+        // when all the prices will be sorted
+        i = 0;
+      }
+    }
+    // change status to make growing sorting possible
+    priceSortStatus = "decreasing";
+  }
 };
 
 ///////////////////////
@@ -555,8 +615,4 @@ countPrice();
 createOptions();
 getCategories();
 
-// if (currentCategories == undefined) {
-
-// const categoryFilterIcon = document.getElementById("categoryFilterIcon");
-// categoryFilterIcon.src = categoryFilter;
-// categoryFilterIcon.style.height = "24px";
+document.querySelector(".th-cena").addEventListener("click", priceSort);

@@ -1,25 +1,35 @@
-# pc-builder-webpack
+# Webpack App Starter
 
-Aplikacja domyślnie została stworzona do skonfigurowania zestawu sprzętu, w celu lepszej organizacji np. zakupu danych elementów.
-Domyślnie odnosi się do sprzętu PC, ale można ją dostosować do innych potrzeb.
+Frontend environment for building JavaScript applications
 
-Istotne funkcjonalności:
-- zapisywanie danych w localStorage - po odświeżeniu strony dane takie jak zapisane kategorie i dodane pozycje w tabeli pozostają nienaruszone.
-- podsumowanie kosztów ogólnych, lub kosztów danej kategorii.
-- opcja edytowania dodanej pozycji - aby z niej skorzystać, należy kliknąć dwa razy w element tabeli, który chcemy zmienić.
-- możliwość filtrowania po kategorii
-- możliwość dodania nowej kategorii
-- możliwość usunięcia starych kategorii
-- dwie podpowiedzi dla użytkownika uruchamiane po najechaniu na ikonę 'i'
+Includes the following features...
 
+- Babel Loader
+- Sass Loader With Dart Sass
+- HTMLWebpackPlugin
+- WebpackDevServer
+- Asset Resource Loader
+- Source Maps
+- Caching
 
-Aplikacja nie pozwala na:
-- usunięcie kategorii, jeśli istnieją przedmioty posiadające tę kategorię
-- dodanie kategorii bez nazwy
-- wpisanie liter do pozycji "cena"
-- dodanie przedmiotu, jeśli jakieś pole nie jest uzupełnione - puste pole są podświetlone na czerwono
-- usunięcia kategorii "inne"
+## Usage
 
+Run Dev Server (Port 3000)
 
+```
+  npm run dev
+```
 
-![preview image](preview1.PNG?raw=true "Title")
+## Build for production
+
+```
+npm run build
+```
+
+## Demo App
+
+The demo app is a very simple Joke generator. Replace with your own code and install other packages as needed
+
+- index.js (main javascript)
+- template.html (template)
+- styles/main.scss (styles)

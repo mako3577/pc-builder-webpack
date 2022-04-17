@@ -523,15 +523,24 @@ const closeCatEdit = function () {
 // if it's already sorted increasing, sort decreasing
 const priceSort = function () {
   let priceVal, nextPriceVal;
+  const priceIcon = document.querySelector(".price-icon");
 
   // check current sorting status
   // if its other than 'increasing'
   // sort rows from small to big
   if (priceSortStatus != "increasing") {
+    priceIcon.style.display = "flex";
+    if (priceIcon.matches(".sortToLowest")) {
+      priceIcon.classList.remove("sortToLowest");
+    }
+
     for (let i = 1; i < document.querySelector(".table").rows.length - 1; i++) {
       priceVal = parseInt(document.querySelector(".table").rows[i].children[2].innerText);
       nextPriceVal = parseInt(document.querySelector(".table").rows[i + 1].children[2].innerText);
 
+      // after iterating over prices in rows, check if they're
+      // already positioned well
+      // if not, change their positions in relation 1 to 1
       if (priceVal < nextPriceVal) {
         let bigger = document.querySelector(".table").rows[i + 1];
         let smaller = document.querySelector(".table").rows[i];
@@ -546,6 +555,9 @@ const priceSort = function () {
     // from highest to smallest
     priceSortStatus = "increasing";
   } else {
+    priceIcon.style.display = "flex";
+    priceIcon.classList.add("sortToLowest");
+
     for (let i = 1; i < document.querySelector(".table").rows.length - 1; i++) {
       priceVal = parseInt(document.querySelector(".table").rows[i].children[2].innerText);
       nextPriceVal = parseInt(document.querySelector(".table").rows[i + 1].children[2].innerText);
